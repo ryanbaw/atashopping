@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Horizontal Drop Down Menus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type=text/javascript>
+/**
+*菜单的构造,需要绑定到onload
+*/
+startList = function() {
+ if (document.all&&document.getElementById) {
+  dropmenuRoot = document.getElementById("dropmenu");
+   for (i=0; i<dropmenuRoot.childNodes.length; i++) {
+    node = dropmenuRoot.childNodes[i];
+    if (node.nodeName=="LI") {
+     node.onmouseover=function() {
+     this.className+=" over";
+     //开始灌水
+       for(j=0;j<this.childNodes.length;j++){
+       if (this.childNodes[j].nodeName=="UL"){
+        if (this.childNodes[j].childNodes[0].nodeName=="LI"){
+         if (this.offsetLeft+this.childNodes[j].childNodes.length*this.childNodes[j].childNodes[0].offsetWidth-dropmenuRoot.offsetLeft>dropmenuRoot.offsetWidth){ 
+        var len=this.childNodes[j].childNodes.length*this.childNodes[j].childNodes[0].offsetWidth; //菜单的长度
+        (len>dropmenuRoot.offsetWidth) ? this.childNodes[j].style.width=776+"px" : this.childNodes[j].style.width=len+"px"; //给ul设置宽度 如果子菜单比较多，大于容器的宽度，那么ul的宽度就是容器的宽度
+        len =this.offsetLeft+len-dropmenuRoot.offsetLeft-dropmenuRoot.offsetWidth;
+        (len>this.offsetLeft-dropmenuRoot.offsetLeft) ? this.childNodes[j].style.marginLeft=-(this.offsetLeft-dropmenuRoot.offsetLeft) : this.childNodes[j].style.marginLeft=-len+"px";        
+        }
+        }
+       }
+      }
+    }
+    //灌水完毕
+    node.onmouseout=function() {
+     this.className=this.className.replace(" over", "");
+    }
+   }
+  }
+ }
+}
+window.onload=startList;
+</script>
+</head>
+<style type="text/css">
+body { font: normal 11px verdana; background: #00FF00; position:absolute }
+ul { margin: 0; padding: 0; }
+li { list-style-position: outside; list-style: none;}
+a { text-decoration: none;  color: #666;}
+ul#dropmenu,ul#dropmenu ul{
+ margin: 0 auto;
+ text-align: left;
+ padding: 0;
+ list-style: none;
+ z-index: 99;
+}
+ul#dropmenu {
+ width: 774px;
+ display: block;
+ height: 24px;
+ clear: both;
+ border: 1px solid #ccc;
+ text-align: center;
+ background: #fff;
+}
+ul#dropmenu li {
+ position: relative;
+ z-index: 999;
+ float: left;
+}
+ul#dropmenu ul li{
+ float: left;
+ display: block;
+}
+ul#dropmenu ul {
+ /*width: 122px;
+ w\idth: 120px;*/
+ height: auto;
+ position: absolute;
+ text-align: left;
+ left: 0px;
+ display: none;
+ border: solid 1px #ccc;
+}
+/*当鼠标在子菜单和父菜单上时，父菜单的样式*/
+ul#dropmenu li.over a,ul#dropmenu li:hover a{
+ border-color: #ccc;
+ background: #c00;
+ color: #fff;
+}
+/*将子菜单的样式清除*/
+ul#dropmenu li.over ul a,ul#dropmenu li:hover ul a{
+ font-weight: normal;
+ color: #666;
+ background: #fff;;
+}
+/*子菜单的hover样式*/
+ul#dropmenu li.over ul a:hover,ul#dropmenu li:hover ul a:hover{
+ font-weight: normal;
+ color: #cc0000;
+ font-weight: bold;
+ background: #f6f6f6;
+}
+/* Styles for Menu Items */
+ul#dropmenu a {
+ display: block;
+ padding: 0 0 0 10px;
+ width: 106px;
+ w\idth: 96px;
+ color: #666;
+ line-height: 24px;
+}
+ul#dropmenu ul li{
+ width: 110px;
+ border: 0;
+}
+/* End */
+ul#dropmenu ul a {
+ FILTER: progid:DXImageTransform.Microsoft.Alpha(opacity=70);   /*   透明  */
+ padding: 2px 0px 2px  10px;
+ border: 0;
+ width: 120px; 
+ w\idth: 110px;/* Sub Menu Styles */
+}
+ul#dropmenu li:hover ul,ul#dropmenu  li.over ul {
+ display: block; /* The magic */
+}
+</style>
+<body>
+<div id="nav">
+  <ul id="dropmenu">
+    <li><a href="/atashopping1.2/index.jsp">ATA购物主页</a></li>
+    <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=2">用户管理</a>
+      <ul>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=21">增加管理员</a></li>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=22">删除用户</a></li>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=23">查询所有用户</a></li>
+      </ul>
+    </li>
+    <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=3">商品管理</a>
+      <ul>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=31">增加商品</a></li>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=32">删除商品</a></li>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=33">查询商品</a></li>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=34">修改商品</a></li>
+      </ul>
+    </li>
+	<li><a href="/atashopping1.2/servlet/AdminServlet?actionType=4">资金账户管理</a>
+      <ul>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=41">查询用户资金账户</a></li>
+		<li><a href="/atashopping1.2/servlet/AdminServlet?actionType=42">查询用户充值记录</a></li>
+       
+        
+      </ul>
+    </li>
+    <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=5">订单管理</a>
+      <ul>
+        <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=51">查询消费订单</a></li>
+		
+        
+      </ul>
+    </li>
+    <li><a href="/atashopping1.2/servlet/AdminServlet?actionType=6">退出管理</a>
+    </li>
+  </ul>
+</div>
+</body>
+</html>
