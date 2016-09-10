@@ -42,7 +42,6 @@ public class UserDAOImpl implements UserDAO {
 			pstmt.close();
 			dbc.close();
 		}
-		
 	}
 
 	public void delete(String username) throws Exception {

@@ -9,10 +9,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>"/>
-    
-    <title>ATA网上购物商城 欢迎您的光临！</title>
-    
+	<base href="<%=basePath%>"/>
+	
+	<title>ATA网上购物商城 欢迎您的光临！</title>
+	
 	<meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>    
@@ -150,38 +150,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tr>
 	<tr>
 		<td colspan="19" valign="bottom" background="images/login_34.jpg">
-        <table width="923" height="35" border="0" cellspacing="0">
-          <tr>
-            <td width="255">&nbsp;</td>
-            <td valign="bottom">
-                  <form action="servlet/ContrlServlet?valuetype=1" method="post">
-<%
-User user=new User();
-
-user=(User)request.getSession().getAttribute("loginusername");
-
-if(user==null){
-out.println("<font size='3'>用户：<input  size='20' height='15' type='text' name='loginusername'></font>");
-out.println("<font size='3'>密码：<input  size='20' height='15' type='password' name='loginpassword'></font>");
-out.print(" <input type='submit' value='登录'>");
-out.print("  <a href='register.jsp'>注册新用户</a>");
-}else{
-out.print("<font size='3'>欢迎您  :"+user.getUsername()+"</font>");
-out.print("&nbsp;&nbsp;");
-out.print("<font size='3'><a href='servlet/ContrlServlet?valuetype=7'>注销</a></font>");
-out.print("&nbsp;&nbsp;");
-out.print("<a href='userconsle.jsp'>个人控制面板</a>");
-
-}
-%>
-
-
-</form>
-            </td>
-          </tr>
-        </table></td>
-<td>
-			<img src="images/分隔符.gif" width="1" height="48" alt=""></td>
+		<table width="923" height="35" border="0" cellspacing="0">
+			<tr>
+				<td width="255">&nbsp;</td>
+				<td valign="bottom">
+					<form action="servlet/ContrlServlet?valuetype=1" method="post">
+					<%
+						User user=new User();
+						user=(User)request.getSession().getAttribute("loginusername");
+						if(user==null){
+							out.println("<font size='3'>用户：<input  size='20' height='15' type='text' name='loginusername'></font>");
+							out.println("<font size='3'>密码：<input  size='20' height='15' type='password' name='loginpassword'></font>");
+							out.print("<input type='submit' value='登录'>");
+							out.print("<a href='register.jsp'>注册新用户</a>");
+						}else{
+							out.print("<font size='3'>欢迎您  :"+user.getUsername()+"</font>");
+							out.print("&nbsp;&nbsp;");
+							out.print("<font size='3'><a href='servlet/ContrlServlet?valuetype=7'>注销</a></font>");
+							out.print("&nbsp;&nbsp;");
+							out.print("<a href='userconsle.jsp'>个人控制面板</a>");
+						}
+					%>
+					</form>
+				</td>
+			</tr>
+		</table>
+		</td>
+		<td><img src="images/分隔符.gif" width="1" height="48" alt=""></td>
 	</tr>
 	<tr>
 		<td>
@@ -227,16 +222,16 @@ out.print("<a href='userconsle.jsp'>个人控制面板</a>");
 </table>
 <table width="925" height="1060" border="0" align="center" cellpadding="1" cellspacing="0">
   <tr>
-    <td valign="top" background="images/b1.JPG"><table width="905" height="749" border="0" cellpadding="1" cellspacing="0">
-      <tr>
-        <td width="589" height="309" align="right" valign="bottom"><table width="545" height="221" border="0" cellpadding="1" cellspacing="0">
+	<td valign="top" background="images/b1.JPG"><table width="905" height="749" border="0" cellpadding="1" cellspacing="0">
+	  <tr>
+		<td width="589" height="309" align="right" valign="bottom"><table width="545" height="221" border="0" cellpadding="1" cellspacing="0">
 			<tr>
 			<%
 				List<Product> pList=  DAOFactory.getProductDAOInstance().selectAll();
 				List pList1 = (List)request.getSession().getAttribute("pList");
 				request.getSession().setAttribute("pList",pList1);
 			%>
-            <td width="169" align="left" valign="top"><img src="<%=pList.get(0).getImgpath() %>" width="162" height="128">
+			<td width="169" align="left" valign="top"><img src="<%=pList.get(0).getImgpath() %>" width="162" height="128">
 			<center><%=pList.get(0).getPname() %></center>
 			</br>
 			<center><%=pList.get(0).getPrice() %>元
@@ -244,88 +239,88 @@ out.print("<a href='userconsle.jsp'>个人控制面板</a>");
 			</center>
 			
 			</td>
-            <td width="169" align="left" valign="top"><img src="<%=pList.get(1).getImgpath() %>" width="162" height="128">
-            <center><%=pList.get(1).getPname() %></center>
+			<td width="169" align="left" valign="top"><img src="<%=pList.get(1).getImgpath() %>" width="162" height="128">
+			<center><%=pList.get(1).getPname() %></center>
 			</br>
 			<center><%=pList.get(1).getPrice() %>元
 			<a href="servlet/BuyServlet?pid=<%=pList.get(1).getPid() %>"><font color="red" size="2">加入购物车</font></a>
 			</center>
-            </td>
-            
-            <td width="172" align="left" valign="top"><img src="<%=pList.get(2).getImgpath() %>" width="162" height="128">
-            <center><%=pList.get(2).getPname() %></center>
+			</td>
+			
+			<td width="172" align="left" valign="top"><img src="<%=pList.get(2).getImgpath() %>" width="162" height="128">
+			<center><%=pList.get(2).getPname() %></center>
 			</br>
 			<center><%=pList.get(2).getPrice() %>元
 			<a href="servlet/BuyServlet?pid=<%=pList.get(2).getPid() %>"><font color="red" size="2">加入购物车</font></a>
 			</center>
-            </td>
-            <td width="27">&nbsp;</td>
-          </tr>
-        </table></td>
-        <td width="312" rowspan="2"><table width="312" height="698" border="0" cellpadding="1" cellspacing="0">
-          <tr>
-            <td width="13" height="103">&nbsp;</td>
-            <td width="283">&nbsp;</td>
-            <td width="10">&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="577">&nbsp;</td>
-            <td><table width="100%" height="590" border="0" cellpadding="1" cellspacing="0">
-              <tr>
-                <td>&nbsp;</td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                </tr>
-            </table></td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="18">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="390"><table width="579" height="353" border="0" cellpadding="1" cellspacing="0">
-          <tr>
-            <td width="22" height="26">&nbsp;</td>
-            <td colspan="3">&nbsp;</td>
-            </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-        </table></td>
-        </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
+			</td>
+			<td width="27">&nbsp;</td>
+		  </tr>
+		</table></td>
+		<td width="312" rowspan="2"><table width="312" height="698" border="0" cellpadding="1" cellspacing="0">
+		  <tr>
+			<td width="13" height="103">&nbsp;</td>
+			<td width="283">&nbsp;</td>
+			<td width="10">&nbsp;</td>
+		  </tr>
+		  <tr>
+			<td height="577">&nbsp;</td>
+			<td><table width="100%" height="590" border="0" cellpadding="1" cellspacing="0">
+			  <tr>
+				<td>&nbsp;</td>
+				</tr>
+			  <tr>
+				<td>&nbsp;</td>
+				</tr>
+			  <tr>
+				<td>&nbsp;</td>
+				</tr>
+			  <tr>
+				<td>&nbsp;</td>
+				</tr>
+			  <tr>
+				<td>&nbsp;</td>
+				</tr>
+			  <tr>
+				<td>&nbsp;</td>
+				</tr>
+			</table></td>
+			<td>&nbsp;</td>
+		  </tr>
+		  <tr>
+			<td height="18">&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		  </tr>
+		</table></td>
+	  </tr>
+	  <tr>
+		<td height="390"><table width="579" height="353" border="0" cellpadding="1" cellspacing="0">
+		  <tr>
+			<td width="22" height="26">&nbsp;</td>
+			<td colspan="3">&nbsp;</td>
+			</tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		  </tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		  </tr>
+		</table></td>
+		</tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	  </tr>
+	</table></td>
   </tr>
 </table>
 <!-- End ImageReady Slices -->
-    </body>
+	</body>
 </html>

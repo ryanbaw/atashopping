@@ -13,7 +13,6 @@ import ata.wx.shopping.busbean.*;
  *
  */
 public class UserFormOBeanTest {
-	
 
 	public static void main(String[] args) {
 		List<Product> list=new ArrayList<Product>();
@@ -36,7 +35,5 @@ public class UserFormOBeanTest {
 		list.add(p2);
 		list.add(p3);
 		UserFormOBean.buyProcess("丹丹", list);
-		
 	}
-
 }

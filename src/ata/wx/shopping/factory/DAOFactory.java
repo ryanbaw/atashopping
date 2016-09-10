@@ -15,9 +15,6 @@ import ata.wx.shopping.dao.impl.UserAccountDAOImpl;
 import ata.wx.shopping.dao.impl.UserDAOImpl;
 import ata.wx.shopping.dao.impl.UserFormDAOImpl;
 
-
-
-
 public class DAOFactory
 {	
 	public static UserDAO getUserDAOInstance(){
@@ -46,6 +43,5 @@ public class DAOFactory
 	
 	public static MoneyLogDAO getMoneyLogDAOInstance(){
 		return new MoneyLogDAOImpl();
-	}
-		
+	}	
 }

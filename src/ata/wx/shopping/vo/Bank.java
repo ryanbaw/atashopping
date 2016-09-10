@@ -12,8 +12,7 @@ public class Bank {
 	private String cardname;
 	private String password;
 	private double money;
-	
-	
+
 	public Bank() {
 		super();
 	}
@@ -42,7 +41,4 @@ public class Bank {
 	public void setMoney(double money) {
 		this.money = money;
 	}
-	
-	
-
 }

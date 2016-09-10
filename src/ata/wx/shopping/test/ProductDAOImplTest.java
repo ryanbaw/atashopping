@@ -23,5 +23,4 @@ public class ProductDAOImplTest {
 			e.printStackTrace();
 		}
 	}
-
 }

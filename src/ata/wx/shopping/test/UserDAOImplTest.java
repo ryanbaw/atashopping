@@ -6,8 +6,8 @@ import ata.wx.shopping.factory.DAOFactory;
 import ata.wx.shopping.vo.User;
 
 public class UserDAOImplTest {
-	public static void main(String[] args) {
 
+	public static void main(String[] args) {
 		try {
 			List <User>uerList=DAOFactory.getUserDAOInstance().selectAll();
 			System.out.println(uerList.size());
@@ -15,6 +15,5 @@ public class UserDAOImplTest {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
 	}
 }
