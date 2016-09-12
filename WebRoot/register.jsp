@@ -34,7 +34,7 @@
 			//检查所有;
 			function checkall() {
 				checkemail();
-				// checkBox();
+				checkBox();
 				checkpassword();
 				checkcpassword();
 				if(checkyear()) {
