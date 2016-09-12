@@ -127,23 +127,23 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- 正在导出表  atashopping.product 的数据：~17 rows (大约)
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`pid`, `pname`, `price`, `pcount`, `imgpath`) VALUES
-	('P1201540144093', '望远镜', 123.000, 195, 'http://localhost:8080/atashopping/images/pic08b.jpg'),
-	('P1201540170171', 'MOTOL6', 1900.000, 200, 'http://localhost:8080/atashopping/images/pic09b.jpg'),
-	('P1201573121015', 'sony mp3', 3000.000, 2311, 'http://localhost:8080/atashopping/images/pic50b.jpg'),
-	('P1201573156843', '铁三角耳机', 1800.000, 50, 'http://localhost:8080/atashopping/images/pic49b.jpg'),
-	('P1201573225765', 'aigo MP3', 1500.000, 50, 'http://localhost:8080/atashopping/images/pic48b.jpg'),
-	('P1201573257046', 'HP 笔记本', 5500.000, 23, 'http://localhost:8080/atashopping/images/pic47b.jpg'),
-	('P1201573308484', 'SONY TX16', 9800.000, 50, 'http://localhost:8080/atashopping/images/pic45b.jpg'),
-	('P1201573363671', '联想笔记本', 7600.000, 1110, 'http://localhost:8080/atashopping/images/pic44b.jpg'),
-	('P1201573406609', 'NEC笔记本', 7800.000, 230, 'http://localhost:8080/atashopping/images/pic43b.jpg'),
-	('P1201573436734', 'IBM R52笔记本', 7700.000, 55, 'http://localhost:8080/atashopping/images/pic42b.jpg'),
-	('P1201573464765', '手机链', 10.000, 1000, 'http://localhost:8080/atashopping/images/pic41b.jpg'),
-	('P1201573492875', '爱国者U盘', 400.000, 500, 'http://localhost:8080/atashopping/images/pic40b.jpg'),
-	('P1201573895484', '爱国者UX盘', 1234.000, 345, 'http://localhost:8080/atashopping/images/pic39b.jpg'),
-	('P1201573922156', 'sony 耳机', 234.000, 341, 'http://localhost:8080/atashopping/images/pic38b.jpg'),
-	('P1201573959250', 'wd80G硬盘', 400.000, 25, 'http://localhost:8080/atashopping/images/pic37b.jpg'),
-	('P1201573997765', 'Kingston内存条', 400.000, 45, 'http://localhost:8080/atashopping/images/pic35b.jpg'),
-	('P1201577704015', '闹钟', 40.000, 299, 'http://localhost:8080/atashopping/images/pic21b.jpg');
+	('P1201540144093', '望远镜', 123.000, 195, 'http://192.168.1.100:8080/atashopping/images/pic08b.jpg'),
+	('P1201540170171', 'MOTOL6', 1900.000, 200, 'http://192.168.1.100:8080/atashopping/images/pic09b.jpg'),
+	('P1201573121015', 'sony mp3', 3000.000, 2311, 'http://192.168.1.100:8080/atashopping/images/pic50b.jpg'),
+	('P1201573156843', '铁三角耳机', 1800.000, 50, 'http://192.168.1.100:8080/atashopping/images/pic49b.jpg'),
+	('P1201573225765', 'aigo MP3', 1500.000, 50, 'http://192.168.1.100:8080/atashopping/images/pic48b.jpg'),
+	('P1201573257046', 'HP 笔记本', 5500.000, 23, 'http://192.168.1.100:8080/atashopping/images/pic47b.jpg'),
+	('P1201573308484', 'SONY TX16', 9800.000, 50, 'http://192.168.1.100:8080/atashopping/images/pic45b.jpg'),
+	('P1201573363671', '联想笔记本', 7600.000, 1110, 'http://192.168.1.100:8080/atashopping/images/pic44b.jpg'),
+	('P1201573406609', 'NEC笔记本', 7800.000, 230, 'http://192.168.1.100:8080/atashopping/images/pic43b.jpg'),
+	('P1201573436734', 'IBM R52笔记本', 7700.000, 55, 'http://192.168.1.100:8080/atashopping/images/pic42b.jpg'),
+	('P1201573464765', '手机链', 10.000, 1000, 'http://192.168.1.100:8080/atashopping/images/pic41b.jpg'),
+	('P1201573492875', '爱国者U盘', 400.000, 500, 'http://192.168.1.100:8080/atashopping/images/pic40b.jpg'),
+	('P1201573895484', '爱国者UX盘', 1234.000, 345, 'http://192.168.1.100:8080/atashopping/images/pic39b.jpg'),
+	('P1201573922156', 'sony 耳机', 234.000, 341, 'http://192.168.1.100:8080/atashopping/images/pic38b.jpg'),
+	('P1201573959250', 'wd80G硬盘', 400.000, 25, 'http://192.168.1.100:8080/atashopping/images/pic37b.jpg'),
+	('P1201573997765', 'Kingston内存条', 400.000, 45, 'http://192.168.1.100:8080/atashopping/images/pic35b.jpg'),
+	('P1201577704015', '闹钟', 40.000, 299, 'http://192.168.1.100:8080/atashopping/images/pic21b.jpg');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 

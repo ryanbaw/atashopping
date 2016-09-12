@@ -237,8 +237,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<center><%=pList.get(0).getPrice() %>元
 			<a href="servlet/BuyServlet?pid=<%=pList.get(0).getPid() %>"><font color="red" size="2" >加入购物车</font></a>
 			</center>
-			
 			</td>
+
 			<td width="169" align="left" valign="top"><img src="<%=pList.get(1).getImgpath() %>" width="162" height="128">
 			<center><%=pList.get(1).getPname() %></center>
 			</br>
@@ -246,7 +246,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a href="servlet/BuyServlet?pid=<%=pList.get(1).getPid() %>"><font color="red" size="2">加入购物车</font></a>
 			</center>
 			</td>
-			
+
 			<td width="172" align="left" valign="top"><img src="<%=pList.get(2).getImgpath() %>" width="162" height="128">
 			<center><%=pList.get(2).getPname() %></center>
 			</br>
@@ -255,7 +255,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</center>
 			</td>
 			<td width="27">&nbsp;</td>
-		  </tr>
+			</tr>
 		</table></td>
 		<td width="312" rowspan="2"><table width="312" height="698" border="0" cellpadding="1" cellspacing="0">
 		  <tr>
