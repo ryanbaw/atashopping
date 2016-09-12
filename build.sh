@@ -34,6 +34,7 @@ case "$1" in
 build)
 	mkdir -p $BASE_HOME/WebRoot/WEB-INF/classes/ata/wx/shopping/busbean
 	mkdir -p $BASE_HOME/WebRoot/WEB-INF/classes/ata/wx/shopping/dao
+	mkdir -p $BASE_HOME/WebRoot/WEB-INF/classes/ata/wx/shopping/dao/impl
 	mkdir -p $BASE_HOME/WebRoot/WEB-INF/classes/ata/wx/shopping/dbc
 	mkdir -p $BASE_HOME/WebRoot/WEB-INF/classes/ata/wx/shopping/factory
 	mkdir -p $BASE_HOME/WebRoot/WEB-INF/classes/ata/wx/shopping/filter
@@ -50,6 +51,7 @@ build)
 	javac -d $TARGET_DIR ata/wx/shopping/util/*.java
 	javac -d $TARGET_DIR ata/wx/shopping/vo/*.java
 	javac -d $TARGET_DIR ata/wx/shopping/dao/*.java
+	javac -d $TARGET_DIR ata/wx/shopping/dao/impl/*.java
 	javac -d $TARGET_DIR ata/wx/shopping/filter/*.java
 
 	javac -d $TARGET_DIR -classpath ata/wx/shopping/factory:ata/wx/shopping/util:ata/wx/shopping/vo:$CLASSPATH ata/wx/shopping/busbean/*.java
@@ -59,7 +61,7 @@ build)
 	cd $BASE_HOME/WebRoot
 	
 	echo $"Create war package ..."
-	jar cvf $BASE_HOME/atashopping.war addfalse.jsp addmoney.jsp addok.jsp admin administrator.jsp bankregfail.jsp bankregister.jsp bankregok.jsp buyfail.jsp buyok.jsp css editfail.jsp editok.jsp error.jsp images img index.jsp infupdate.jsp js leftmoney.jsp logfail.jsp logok.jsp META-INF MyJsp.jsp regfail.jsp register.jsp regok.jsp shopcart.jsp shopping.jsp sql ui.html userconsle.jsp viewmfail.jsp WEB-INF
+	jar cvf $BASE_HOME/atashopping.war *.jsp admin css images img js META-INF sql ui.html WEB-INF
 
 	cd $BASE_HOME
 	cp atashopping.war /home/pi/java/WebServ/apache-tomcat-8.0.24/webapps

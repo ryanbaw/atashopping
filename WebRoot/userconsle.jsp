@@ -30,8 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
 </head>
   
-  <body>
-  	<%
+<body>
+	<%
 		User user=new User();
 		
 		user=(User)request.getSession().getAttribute("loginusername");
@@ -40,12 +40,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	%>
     <table width="700" border="0" align="center">
-      <tr align="left" valign="top">
-        <td><div><span class="STYLE1">
-          <jsp:include page="ui.html"></jsp:include>
-        </span></td>
-      </tr>
-  </table>
+		<tr align="left" valign="top">
+        <td>
+        <div>
+	        <span class="STYLE1">
+	          <jsp:include page="ui.html"></jsp:include>
+	        </span>
+        </div>
+        </td>
+		</tr>
+	</table>
     <br>
-  </body>
+</body>
 </html>

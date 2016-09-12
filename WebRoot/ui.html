@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type=text/javascript>
 /**
-*²Ëµ¥µÄ¹¹Ôì,ĞèÒª°ó¶¨µ½onload
+*èœå•çš„æ„é€ ,éœ€è¦ç»‘å®šåˆ°onload
 */
 startList = function() {
  if (document.all&&document.getElementById) {
@@ -15,13 +15,13 @@ startList = function() {
     if (node.nodeName=="LI") {
      node.onmouseover=function() {
      this.className+=" over";
-     //¿ªÊ¼¹àË®
+     //å¼€å§‹çŒæ°´
        for(j=0;j<this.childNodes.length;j++){
        if (this.childNodes[j].nodeName=="UL"){
         if (this.childNodes[j].childNodes[0].nodeName=="LI"){
          if (this.offsetLeft+this.childNodes[j].childNodes.length*this.childNodes[j].childNodes[0].offsetWidth-dropmenuRoot.offsetLeft>dropmenuRoot.offsetWidth){ 
-        var len=this.childNodes[j].childNodes.length*this.childNodes[j].childNodes[0].offsetWidth; //²Ëµ¥µÄ³¤¶È
-        (len>dropmenuRoot.offsetWidth) ? this.childNodes[j].style.width=776+"px" : this.childNodes[j].style.width=len+"px"; //¸øulÉèÖÃ¿í¶È Èç¹û×Ó²Ëµ¥±È½Ï¶à£¬´óÓÚÈİÆ÷µÄ¿í¶È£¬ÄÇÃ´ulµÄ¿í¶È¾ÍÊÇÈİÆ÷µÄ¿í¶È
+        var len=this.childNodes[j].childNodes.length*this.childNodes[j].childNodes[0].offsetWidth; //èœå•çš„é•¿åº¦
+        (len>dropmenuRoot.offsetWidth) ? this.childNodes[j].style.width=776+"px" : this.childNodes[j].style.width=len+"px"; //ç»™ulè®¾ç½®å®½åº¦ å¦‚æœå­èœå•æ¯”è¾ƒå¤šï¼Œå¤§äºå®¹å™¨çš„å®½åº¦ï¼Œé‚£ä¹ˆulçš„å®½åº¦å°±æ˜¯å®¹å™¨çš„å®½åº¦
         len =this.offsetLeft+len-dropmenuRoot.offsetLeft-dropmenuRoot.offsetWidth;
         (len>this.offsetLeft-dropmenuRoot.offsetLeft) ? this.childNodes[j].style.marginLeft=-(this.offsetLeft-dropmenuRoot.offsetLeft) : this.childNodes[j].style.marginLeft=-len+"px";        
         }
@@ -29,7 +29,7 @@ startList = function() {
        }
       }
     }
-    //¹àË®Íê±Ï
+    //çŒæ°´å®Œæ¯•
     node.onmouseout=function() {
      this.className=this.className.replace(" over", "");
     }
@@ -80,19 +80,19 @@ ul#dropmenu ul {
  display: none;
  border: solid 1px #ccc;
 }
-/*µ±Êó±êÔÚ×Ó²Ëµ¥ºÍ¸¸²Ëµ¥ÉÏÊ±£¬¸¸²Ëµ¥µÄÑùÊ½*/
+/*å½“é¼ æ ‡åœ¨å­èœå•å’Œçˆ¶èœå•ä¸Šæ—¶ï¼Œçˆ¶èœå•çš„æ ·å¼*/
 ul#dropmenu li.over a,ul#dropmenu li:hover a{
  border-color: #ccc;
  background: #c00;
  color: #fff;
 }
-/*½«×Ó²Ëµ¥µÄÑùÊ½Çå³ı*/
+/*å°†å­èœå•çš„æ ·å¼æ¸…é™¤*/
 ul#dropmenu li.over ul a,ul#dropmenu li:hover ul a{
  font-weight: normal;
  color: #666;
  background: #fff;;
 }
-/*×Ó²Ëµ¥µÄhoverÑùÊ½*/
+/*å­èœå•çš„hoveræ ·å¼*/
 ul#dropmenu li.over ul a:hover,ul#dropmenu li:hover ul a:hover{
  font-weight: normal;
  color: #cc0000;
@@ -114,7 +114,7 @@ ul#dropmenu ul li{
 }
 /* End */
 ul#dropmenu ul a {
- FILTER: progid:DXImageTransform.Microsoft.Alpha(opacity=70);   /*   Í¸Ã÷  */
+ FILTER: progid:DXImageTransform.Microsoft.Alpha(opacity=70);   /*   é€æ˜  */
  padding: 2px 0px 2px  10px;
  border: 0;
  width: 120px; 
@@ -127,29 +127,29 @@ ul#dropmenu li:hover ul,ul#dropmenu  li.over ul {
 <body>
 <div id="nav">
   <ul id="dropmenu">
-    <li><a href="index.jsp">ATA¹ºÎïÖ÷Ò³</a></li>
-    <li><a href="userconsle.jsp">ÓÃ»§¿ØÖÆÌ¨</a>
+    <li><a href="index.jsp">ATAè´­ç‰©ä¸»é¡µ</a></li>
+    <li><a href="userconsle.jsp">ç”¨æˆ·æ§åˆ¶å°</a>
       <ul>
-        <li><a href="infupdate.jsp">ĞŞ¸Ä¸öÈËĞÅÏ¢</a></li>
-		<li><a href="addmoney.jsp">ÓÃ»§³äÖµ</a></li>
-        <li><a href="#">²é¿´¹ºÎï³µ</a></li>
-        <li><a href="servlet/ContrlServlet?valuetype=7">×¢Ïú</a></li>
+        <li><a href="infupdate.jsp">ä¿®æ”¹ä¸ªäººä¿¡æ¯</a></li>
+		<li><a href="addmoney.jsp">ç”¨æˆ·å……å€¼</a></li>
+        <li><a href="#">æŸ¥çœ‹è´­ç‰©è½¦</a></li>
+        <li><a href="servlet/ContrlServlet?valuetype=7">æ³¨é”€</a></li>
       </ul>
     </li>
-    <li><a href="#">·şÎñ</a>
+    <li><a href="#">æœåŠ¡</a>
       <ul>
-        <li><a href="#">¿Í·ş½»»¥Çø</a></li>
-        <li><a href="#">×ÔÖú·şÎñÇø</a></li>
-        <li><a href="#">ÎÊÌâÌá½»Çø</a></li>
+        <li><a href="#">å®¢æœäº¤äº’åŒº</a></li>
+        <li><a href="#">è‡ªåŠ©æœåŠ¡åŒº</a></li>
+        <li><a href="#">é—®é¢˜æäº¤åŒº</a></li>
       </ul>
     </li>
-        <li><a href="#">¹ØÓÚ</a>
+        <li><a href="#">å…³äº</a>
       <ul>
-        <li><a href="#">ATA¹«Ë¾</a></li>
-        <li><a href="#">¿ª·¢ÍÅ¶Ó</a></li>
+        <li><a href="#">ATAå…¬å¸</a></li>
+        <li><a href="#">å¼€å‘å›¢é˜Ÿ</a></li>
       </ul>
     </li>
-    <li><a href="leftmoney.jsp">²é¿´ÕÊ»§Óà¶î</a></li>
+    <li><a href="leftmoney.jsp">æŸ¥çœ‹å¸æˆ·ä½™é¢</a></li>
   </ul>
 </div>
 </body>
