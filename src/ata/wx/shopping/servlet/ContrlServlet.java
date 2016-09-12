@@ -97,7 +97,7 @@ public class ContrlServlet extends HttpServlet {
 						response.sendRedirect(request.getContextPath()+"/regfail.jsp");
 					}else{
 						String regpassword = request.getParameter("regpassword");
-//String regname = request.getParameter("regname");
+						// String regname = request.getParameter("regname");
 						String regemail = request.getParameter("regemail");
 						String regtel = request.getParameter("regtel");
 						String regaddr = request.getParameter("regaddr");
@@ -144,27 +144,25 @@ public class ContrlServlet extends HttpServlet {
 			//Bank用户登录 
 			case 4:
 				String useraccount = request.getParameter("useraccount");
-//System.out.println(useraccount);
+				// System.out.println(useraccount);
 				String accountpwd = request.getParameter("accountpwd");
-//System.out.println(accountpwd);
+				// System.out.println(accountpwd);
 				BankDAO userbankdao = DAOFactory.getBankDAOInstance();
-System.out.println(userbankdao);
+				System.out.println(userbankdao);
 				try {
-System.out.println(userbankdao.select(useraccount, accountpwd));
+					System.out.println(userbankdao.select(useraccount, accountpwd));
 					if(userbankdao.select(useraccount, accountpwd)){
 						Bank bankuser = userbankdao.select(useraccount);
-System.out.println(bankuser);
+						System.out.println(bankuser);
 						request.getSession().setAttribute("bankuser", bankuser);
 						response.sendRedirect(request.getContextPath()+"/addmoney.jsp");
 					}else{
 						response.sendRedirect(request.getContextPath()+"/addmoney.jsp");
 					}
-					
 				} catch (Exception e3) {
 					// TODO Auto-generated catch block
 					e3.printStackTrace();
 				}
-
 				break;
 			//购物 
 			case 5:
@@ -182,14 +180,13 @@ System.out.println(bankuser);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-				
 				break;
 			//删除用户 
 			case 6:
 				String wantdeletestr = request.getParameter("wantdeletestr");
 				try {
-						UserOBean.deleteUserBean(wantdeletestr);
-						response.sendRedirect("admin.jsp");
+					UserOBean.deleteUserBean(wantdeletestr);
+					response.sendRedirect("admin.jsp");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -253,17 +250,17 @@ System.out.println(bankuser);
 				try{
 					User userob =(User)request.getSession().getAttribute("loginusername");
 					Bank bankob = (Bank)request.getSession().getAttribute("bankuser");
-//System.out.println(userob);
-//System.out.println(bankob);
+					// System.out.println(userob);
+					// System.out.println(bankob);
 					String addmoneystr = request.getParameter("addmoney");
-//System.out.println("\n欲充值金额："+addmoneystr+"\n");
+					// System.out.println("\n欲充值金额："+addmoneystr+"\n");
 					if("".equals(addmoneystr)){
 						request.getSession().setAttribute("zeromoney", "zero");
 						response.sendRedirect(request.getContextPath()+"/addfalse.jsp");
 						return;
 					}else{
 						addmoney = Double.valueOf(addmoneystr);
-//System.out.println(addmoney);
+						// System.out.println(addmoney);
 					}
 					if(bankob!=null&&userob!=null){
 						String userobname = userob.getUsername();
@@ -305,8 +302,6 @@ System.out.println(bankuser);
 				}
 				break;
 		}
-		
-		
 	}
 
 	/**

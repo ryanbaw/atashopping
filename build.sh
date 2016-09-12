@@ -66,6 +66,15 @@ build)
 	cd $BASE_HOME
 	cp atashopping.war /home/pi/java/WebServ/apache-tomcat-8.0.24/webapps
 	;;
+update)
+	cd $BASE_HOME/WebRoot
+
+	echo $"Create war package ..."
+	jar cvf $BASE_HOME/atashopping.war *.jsp admin css images img js META-INF sql ui.html WEB-INF
+
+	cd $BASE_HOME
+	cp atashopping.war /home/pi/java/WebServ/apache-tomcat-8.0.24/webapps
+	;;
 clean)
 	rm -rf $BASE_HOME/WebRoot/WEB-INF/classes/*
 	rm atashopping.war

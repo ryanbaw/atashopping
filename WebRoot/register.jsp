@@ -1,193 +1,194 @@
-<%@ page contentType="text/html; charset=utf-8" language="java"
-	import="java.sql.*" errorPage=""%>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage=""%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>注册新用户</title>
 		<style type="text/css">
-<!--
-.STYLE2 {
-	color: #F18650;
-	font-size: 16px;
-	font-weight: bold;
-}
+		<!--
+		.STYLE2 {
+			color: #F18650;
+			font-size: 16px;
+			font-weight: bold;
+		}
 
-.STYLE3 {
-	font-size: 12px
-}
+		.STYLE3 {
+			font-size: 12px
+		}
 
-.STYLE8 {
-	color: #FF0000
-}
+		.STYLE8 {
+			color: #FF0000
+		}
 
-.STYLE5 {
-	font-family: "宋体";
-	font-size: 12px;
-}
--->
-</style>
+		.STYLE5 {
+			font-family: "宋体";
+			font-size: 12px;
+		}
+		-->
+		</style>
 
 		<script src="js/setday.js"></script>
 
 		<script language="javascript">
-var points = Array("0","0","0","0","0","0","0","0");
-//检查所有;
-function checkall(){
-	checkemail();
-	checkBox();
-	if(checkyear()){
-		var i=0;
-		while (i<=7){
-		if(points[i]=="0"){
-			alert("你的用户信息不正确,请检查1!");
-//			alert(points);
-			i=10;
-			return false;
-		}else{i++;}
-		};
-	}else{
-		return false;
-	}
-}
-//检查用户名;
-function checkusername(){
-	var msg=new Array(
-	"<font color=\"red\" class=\"STYLE1\" >用户名不能为空</font>",
-	"<font color=\"red\" class=\"STYLE1\" >用户名长度不正确</font>",
-	"" );
-	var username = 	document.getElementById("regusername").value;
-	if (username == "") {
-	    usermessage(0);
-		points[0]="0";
-		return false;
-	}
-	if(username.length<4||username.length>18){
-	    usermessage(1);
-		points[0]="0";
-	    return false;
-	}else{
-	usermessage(2);
-	points[0]="1";
-	return true;
-	}
-	function usermessage(id){
-		check_info.innerHTML = msg[id];	
-	}
-}
-//检查登入密码;
-function checkpassword(){
-	var pwd = document.getElementById("regpassword").value;
+			var points = Array("0","0","0","0","0","0","0","0");
+			//检查所有;
+			function checkall() {
+				checkemail();
+				// checkBox();
+				checkpassword();
+				checkcpassword();
+				if(checkyear()) {
+					var i=0;
+					while (i<8) {
+						if (points[i]=="0") {
+							alert("你的用户信息不正确,请检查1!");
+							alert(points);
+							i=10;
+							return false;
+						} else {
+							i++;
+							if (i==8) {
+								return true;
+							}
+						}
+					};
+				} else {
+					return false;
+				}
+			}
+			//检查用户名;
+			function checkusername() {
+				var msg=new Array(
+				"<font color=\"red\" class=\"STYLE1\" >用户名不能为空</font>",
+				"<font color=\"red\" class=\"STYLE1\" >用户名长度不正确</font>",
+				"" );
+				var username = 	document.getElementById("regusername").value;
+				if (username == "") {
+				    usermessage(0);
+					points[0]="0";
+					return false;
+				}
+				if(username.length<4||username.length>18){
+				    usermessage(1);
+					points[0]="0";
+				    return false;
+				}else{
+					usermessage(2);
+					points[0]="1";
+					return true;
+				}
+				function usermessage(id){
+					check_info.innerHTML = msg[id];	
+				}
+			}
+			//检查登入密码;
+			function checkpassword(){
+				var pwd = document.getElementById("regpassword").value;
 
-	if (pwd.length<6||pwd.length>16){
-		pwd_info.innerHTML = "<font color=\"red\">密码格式不正确</font>";
-		points[1]="0";
-		return false;
-    }
-	else{
-	    document.getElementById("pwd_info").innerHTML = "";
-		points[1]="1";
-		return true;
-	}
-}
-//检查密码是否一致;
-function checkcpassword(){
-	var pwd2 = document.getElementById("cpassword").value;
-	if (pwd2==document.getElementById("regpassword").value){
-		document.getElementById("pwdrepeat_info").innerHTML = "";
-		points[2]="1";
-		return true;
-	} else{
-		document.getElementById("pwdrepeat_info").innerHTML = "<font color=\"red\">两次输入的密码不一致，请检查后重试。</font>";
-		points[2]="0";
-		return false;
-	}
-}
-//检查年龄;
-function checkyear(){
-	var year=/^\d{4}/
-	var yeara=document.getElementById("regage").value;
-	if(year.test(yeara)){
-//		if((parseFloat(yeara)>1910)&&(parseFloat(yeara)<2007)){
-			points[3]="1";
-			return true;
-//		}else{ 
-//		alert("你的用户信息不正确,请检查!");
-//		points[3]="0";
-//		return false;
-//		}
-	}else{
-	alert("你的用户信息不正确,请检查!");
-	points[3]="0";
-	return false;
-	}
-}
-function clearyear(){
-	document.form1.year.value="";
-}
-//检查电话;
-function checktelphone(){
-	var tel=document.getElementById("regtel").value;
-	var num1=/(^13[013456789]\d{8}$)/;
-	if(num1.test(tel)){
-		if(tel.length!=11){
-			alert("您输入的手机号码有误!!");
-			document.getElementById("tel_info").innerHTML = "<font color=\"red\">您输入的手机号码有误,请重输</font>"
-			points[4]="0";
-			return false;
-		}else{
-		document.getElementById("tel_info").innerHTML = "";
-		points[4]="1";
-		return true;
-		}
-	}else{
-		document.getElementById("tel_info").innerHTML = "<font color=\"red\">您输入的手机号码有误,请重输</font>"
-		points[4]="0";
-		return false;
-	}
-}
-//检查Email
-function checkemail(){
-	var email=document.getElementById("regemail").value;
-	var reg=new RegExp("^[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)+$");
-	if(reg.test(email)){
-		document.getElementById("email_info").innerHTML = "";
-		points[5]="1";
-	}
-	else{
-	document.getElementById("email_info").innerHTML = "E-mail地址无效";
-	points[5]="0";
-	}
-}
-//检查地址;
-function checkadd(){
-
-	if(document.getElementById("regaddr").value==""){
-		address_info.innerHTML="地址为能为空";
-		points[6]="0";
-	}else{
-	address_info.innerHTML="";
-	points[6]="1";
-	}
-}
-//检查协议;
-function checkBox(){
-	if (document.getElementById("agree").checked){
-	points[7]="1";
-	}
-	else {
-		points[7]="0";
-		return;
-	}
-}
-
-
-</script>
+				if (pwd.length<6||pwd.length>16){
+					pwd_info.innerHTML = "<font color=\"red\">密码格式不正确</font>";
+					points[1]="0";
+					// alert(points[1]);
+					return false;
+				} else {
+					document.getElementById("pwd_info").innerHTML = "";
+					points[1]="1";
+					return true;
+				}
+			}
+			//检查密码是否一致;
+			function checkcpassword(){
+				var pwd2 = document.getElementById("cpassword").value;
+				if (pwd2==document.getElementById("regpassword").value) {
+					document.getElementById("pwdrepeat_info").innerHTML = "";
+					points[2]="1";
+					return true;
+				} else {
+					document.getElementById("pwdrepeat_info").innerHTML = "<font color=\"red\">两次输入的密码不一致，请检查后重试。</font>";
+					points[2]="0";
+					// alert(points[2]);
+					return false;
+				}
+			}
+			//检查年龄;
+			function checkyear(){
+				var year=/^\d{4}/
+				var yeara=document.getElementById("regage").value;
+				if(year.test(yeara)){
+			//		if((parseFloat(yeara)>1910)&&(parseFloat(yeara)<2007)){
+						points[3]="1";
+						return true;
+			//		}else{ 
+			//		alert("你的用户信息不正确,请检查!");
+			//		points[3]="0";
+			//		return false;
+			//		}
+				}else{
+				alert("你的用户信息不正确,请检查!");
+				points[3]="0";
+				return false;
+				}
+			}
+			function clearyear(){
+				document.form1.year.value="";
+			}
+			//检查电话;
+			function checktelphone(){
+				var tel=document.getElementById("regtel").value;
+				var num1=/(^13[013456789]\d{8}$)/;
+				if (num1.test(tel)) {
+					if(tel.length!=11){
+						alert("您输入的手机号码有误!!");
+						document.getElementById("tel_info").innerHTML = "<font color=\"red\">您输入的手机号码有误,请重输</font>"
+						points[4]="0";
+						return false;
+					}else{
+					document.getElementById("tel_info").innerHTML = "";
+					points[4]="1";
+					return true;
+					}
+				} else {
+					document.getElementById("tel_info").innerHTML = "<font color=\"red\">您输入的手机号码有误,请重输</font>"
+					points[4]="0";
+					return false;
+				}
+			}
+			//检查Email
+			function checkemail() {
+				var email=document.getElementById("regemail").value;
+				var reg=new RegExp("^[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)+$");
+				if(reg.test(email)) {
+					document.getElementById("email_info").innerHTML = "";
+					points[5]="1";
+				} else {
+					document.getElementById("email_info").innerHTML = "E-mail地址无效";
+					points[5]="0";
+				}
+			}
+			//检查地址;
+			function checkadd() {
+				if (document.getElementById("regaddr").value=="") {
+					address_info.innerHTML="地址为能为空";
+					points[6]="0";
+				} else {
+					address_info.innerHTML="";
+					points[6]="1";
+				}
+			}
+			//检查协议;
+			function checkBox(){
+				if (document.getElementById("agree").checked){
+					points[7]="1";
+				} else {
+					points[7]="0";
+					return;
+				}
+			}
+		</script>
 	</head>
 
 	<body bgcolor="#FF9966">
-		<table width="71%" height="295" border="0" align="center"
-			cellpadding="1" cellspacing="0">
+		<table width="71%" height="295" border="0" align="center" cellpadding="1" cellspacing="0">
 			<tr>
 				<td></td>
 			</tr>
@@ -252,14 +253,14 @@ function checkBox(){
 												<th width="146" class="STYLE3">
 													<label for="password">
 														<div align="right">
-															<span class="STYLE8">*</span><span class="STYLE5">
-																登录密码：</span>
+															<span class="STYLE8">*</span>
+															<span class="STYLE5">登录密码：</span>
 														</div>
 													</label>
 												</th>
 												<td width="235" class="input">
 													<input class="text" type="password" name="regpassword"
-														onblur="checkpassword()" />
+													onblur="checkpassword()" />
 													<div id="pwd_info"></div>
 													<span></span>
 												</td>
